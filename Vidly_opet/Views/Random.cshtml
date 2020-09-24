@@ -1,0 +1,31 @@
+﻿@model Vidly_opet.ViewModels.RandomMuvieViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*
+    this is a commnet
+    on multiple lines
+*@
+
+@{
+    var className = Model.Customers.Count > 0 ? "popular" : null;
+}
+
+<h2 class="@className">@Model.Muvie.name</h2>
+
+@if (Model.Customers.Count == 0)
+{
+    <text>No one has rented this muvie beore</text>
+}
+else
+{
+    <ul>
+
+        @Model.Customers
+        @foreach (var cosomer in Model.Customers)
+        {
+            <li>@cosomer.name</li>
+        }
+    </ul>
+}
